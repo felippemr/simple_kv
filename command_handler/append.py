@@ -12,7 +12,7 @@ def handle_append(key, value):
         DATABASE_DICT[key].append(value)
     except KeyError:
         operation_status = False
-        return_msg = 'Key [{}] does not exists'.format(key)
+        return_msg = 'ERROR: Key [{}] does not exists'.format(key)
     except AttributeError:
         operation_status = False
         return_msg = 'ERROR: Key [{}] contains non-list value ([{}])'.format(key, value)

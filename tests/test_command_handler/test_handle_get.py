@@ -7,7 +7,7 @@ def test_handle_get_key_exists():
     operation_status, p_value = handle_get(key)
 
     assert operation_status is True
-    assert value, p_value
+    assert value == p_value
 
     handle_delete(key)
 

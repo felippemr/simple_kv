@@ -7,6 +7,6 @@ def test_handle_get_put_list():
     operation_status, p_value = handle_getlist(key)
 
     assert operation_status is True
-    assert value, p_value
+    assert value == p_value
 
     handle_delete(key)
