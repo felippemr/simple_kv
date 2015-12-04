@@ -7,11 +7,11 @@ def parse_message(data):
     except ValueError:
         raise MissingArgumentException("Wrong number of arguments!")
 
-    try:
-        value = {'LIST': value.split(','),
-                 'INT': int(value)
-                 }.get(value_type, str(value))
-    except ValueError:
+    if value_type == 'LIST':
+        value = value.split(',')
+    elif value_type == 'INT':
+        value = int(value)
+    else:
         value = None
 
     return command, key, value

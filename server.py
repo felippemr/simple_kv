@@ -48,6 +48,8 @@ def main():
             COMMAND_HANDLERS['UPDATE_STATS'](command, response[0])
         except MissingArgumentException as e:
             connection.sendall('False;{}'.format(e))
+        except UnicodeDecodeError:
+            logging.info("Client disconneted")
         finally:
             if 'response' in locals():
                 connection.sendall('{};{}'.format(response[0], response[1]))
